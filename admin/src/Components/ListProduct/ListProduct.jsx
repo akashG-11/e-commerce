@@ -48,7 +48,7 @@ const ListProduct = () => {
               src={
               product.image.startsWith("http") 
               ? product.image 
-              : `https://e-commerce-backend-chhq.onrender.com/${product.image}`
+              : `https://e-commerce-backend-chhq.onrender.com/images/${product.image}`
               }
               alt=""
               className="listproduct-product-icon"
