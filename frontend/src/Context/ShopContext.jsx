@@ -19,12 +19,12 @@ const ShopContextProvider = (props) => {
 
     const [cartItems,setCartItems] = useState(getDefaultCart());
     useEffect(()=>{
-        fetch('http://localhost:4000/allproducts')
+        fetch('https://e-commerce-backend-chhq.onrender.com')
         .then((response)=>response.json())
         .then((data)=>setAll_Product(data))
 
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/getcart',{
+            fetch('https://e-commerce-backend-chhq.onrender.com',{
                 method:'POST',
                 headers:{
                     Accept:'application/json',
@@ -40,7 +40,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (ItemId) => {
         setCartItems((prev)=>({...prev,[ItemId]:prev[ItemId]+1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/addtocart',{
+            fetch('https://e-commerce-backend-chhq.onrender.com',{
                 method:'POST',
                 headers:{
                     Accept:'application/json',
@@ -56,7 +56,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (ItemId) => {
         setCartItems((prev)=>({...prev,[ItemId]:prev[ItemId]-1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/removefromcart',{
+            fetch('https://e-commerce-backend-chhq.onrender.com',{
                 method:'POST',
                 headers:{
                     Accept:'application/json',
