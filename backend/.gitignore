@@ -1,0 +1,17 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore image uploads only if you want to (⚠️ remove this to keep images)
+# upload/
+# upload/images/
+
+# Ignore OS/system files
+.DS_Store
+Thumbs.db
