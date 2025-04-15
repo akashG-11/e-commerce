@@ -44,15 +44,16 @@ const ListProduct = () => {
         {allproducts.map((product,index)=>{
           return <React.Fragment key={product.id || index}>
           <div className="listproduct-format-main listproduct-format">
-            <img
-              src={
-              product.image.startsWith("http") 
-              ? product.image 
-              : `https://e-commerce-backend-chhq.onrender.com/images/${product.image}`
-              }
-              alt=""
-              className="listproduct-product-icon"
-            />
+              <img 
+                src={
+                  product.image && product.image.startsWith("http") 
+                    ? product.image 
+                    : `https://e-commerce-backend-chhq.onrender.com/images/${product.image}`
+                }
+                alt=""
+                className="listproduct-product-icon"
+              />
+
             <p>{product.name}</p>
             <p>${product.old_price}</p>
             <p>${product.new_price}</p>
