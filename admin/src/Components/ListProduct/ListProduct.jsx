@@ -7,7 +7,7 @@ const ListProduct = () => {
   const[allproducts,setAllProducts] = useState([]);
 
   const fetchInfo = async ()=>{
-    await fetch('http://localhost:4000/allproducts')
+    await fetch('https://e-commerce-backend-chhq.onrender.com')
     .then((res)=>res.json())
     .then((data)=>{setAllProducts(data)});
   }
@@ -17,7 +17,7 @@ const ListProduct = () => {
   },[])
 
   const remove_product = async(id)=>{
-    await fetch('http://localhost:4000/removeproduct',{
+    await fetch('https://e-commerce-backend-chhq.onrender.com',{
       method:'POST',
       headers:{
         Accept:'application/json',
@@ -44,15 +44,16 @@ const ListProduct = () => {
         {allproducts.map((product,index)=>{
           return <React.Fragment key={product.id || index}>
           <div className="listproduct-format-main listproduct-format">
-            <img
-              src={
-              product.image.startsWith("http") 
-              ? product.image 
-              : `http://localhost:4000/images/${product.image}`
-              }
-              alt=""
-              className="listproduct-product-icon"
-            />
+              <img 
+                src={
+                  product.image && product.image.startsWith("http") 
+                    ? product.image 
+                    : `https://e-commerce-backend-chhq.onrender.com/images/${product.image}`
+                }
+                alt=""
+                className="listproduct-product-icon"
+              />
+
             <p>{product.name}</p>
             <p>${product.old_price}</p>
             <p>${product.new_price}</p>
